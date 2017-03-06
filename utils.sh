@@ -3,7 +3,7 @@
 alias s='sudo $(history -p !!)'
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
-alias reload='. ~/.bash_profile'
+alias reload='unalias -a && . ~/.bash_profile'
 
 alias netstatt='netstat -tulpn'
 
