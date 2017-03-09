@@ -6,6 +6,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 alias reload='unalias -a && . ~/.bash_profile'
 
 alias netstatt='netstat -tulpn'
+alias pstree='pstree -p'
+alias pstreeu="pstree -p $USER"
 
 alias ls='ls --color=always'
 alias tree='tree -C'
