@@ -85,8 +85,8 @@ function vpn() {
             rm -rf $ACTIVE_DIR
 
             # kill auto-stop-vpn
-            kill -- -timeout_pid
-            kill -- -nossh_pid
+            kill -- -$timeout_pid
+            kill -- -$nossh_pid
             ;;
     esac
 }
