@@ -1,5 +1,11 @@
 #!/bin/bash
 
+function _apt-file-search() {
+    local name="$1"
+
+    apt-file search -x "/$name$"
+}
+
 set_yum_aliases() {
     alias pkgi='sudo yum install'
     alias pkgr='sudo yum remove'
@@ -13,7 +19,7 @@ set_apt_aliases() {
     alias pkgr='sudo apt-get remove'
     alias pkgu='sudo apt-get update && sudo apt-get upgrade'
     alias pkgs='apt-cache search'
-    alias pkgp='apt-file search'
+    alias pkgp='_apt-file-search'
 }
 
 command -v apt-get &>/dev/null && set_apt_aliases && return 0
