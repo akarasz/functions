@@ -6,8 +6,22 @@ function axl() {
     local password="$3"
     local xml="$4"
 
-    curl -X POST --header "content-type: text/xml" --insecure --user $username:$password --data @$xml https://$host:8443/axl/ 2>/dev/null |  \
-        xmllint --format - |  \
-        source-highlight -s xml -f esc
+    response=$(curl -X POST --header "content-type: text/xml" --insecure --user $username:$password --data @$xml https://$host:8443/axl/ 2>/dev/null)
+
+    if command -v xmllint &>/dev/null; then
+        formatted=$(echo "$response" | xmllint --format -)
+        response="$formatted"
+    else
+        echo 'if you want formatted output, provide the `xmllint` command' >&2
+    fi
+
+    if command -v source-highlight &>/dev/null; then
+        highlighted=$(echo "$response" | source-highlight -s xml -f esc)
+        response="$highlighted"
+    else
+        echo 'if you want highlighted output, provide the `source-highlight` command' >&2
+    fi
+
+    echo "$response"
 }
 
