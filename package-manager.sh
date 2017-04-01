@@ -17,7 +17,7 @@ set_yum_aliases() {
 set_apt_aliases() {
     alias pkgi='sudo apt-get install'
     alias pkgr='sudo apt-get remove'
-    alias pkgu='sudo apt-get update && sudo apt-get upgrade'
+    alias pkgu='sudo apt-file update && sudo apt-get update && sudo apt-get upgrade'
     alias pkgs='apt-cache search'
     alias pkgp='_apt-file-search'
 }
