@@ -25,3 +25,8 @@ function axl() {
     echo "$response"
 }
 
+function axl-sql-result-to-csv() {
+    local xml_file="$1"
+
+    cat "$xml_file" | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" | xmlstarlet sel -B -t -m "//return/row" -n -m "*" -v . -o ,
+}
