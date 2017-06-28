@@ -3,6 +3,11 @@
 function alias-reload() {
     local LOCAL_ALIASES=$HOME/.local/bash_aliases
 
+    if [ ! -f $LOCAL_ALIASES ]; then
+        mkdir $(dirname $LOCAL_ALIASES)
+        touch $LOCAL_ALIASES
+    fi
+
     . $LOCAL_ALIASES
 }
 
