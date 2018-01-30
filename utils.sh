@@ -18,6 +18,9 @@ alias dl='curl -O --insecure -L'
 # password gen
 alias genpass='echo $(< /dev/urandom tr -dc \._A-Z-a-z-0-9 | head -c32)'
 
+# output beautifiers
+alias bx='xmllint --format - | source-highlight -s xml -f esc'
+
 function colors-available() {
     for i in {0..255} ; do
         printf "\x1b[38;5;${i}mcolour${i}\n"
